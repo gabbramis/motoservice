@@ -12,6 +12,10 @@ import {
 import GoogleReviews from "@/components/google-reviews";
 
 export default function HomePage() {
+  const phoneNumber = "+59899218183";
+  const wppNumber = "+59899218183";
+  const wppMessage = "¡Hola! Estoy en la ruta y necesito asistencia.";
+
   return (
     <div className="min-h-screen">
       <main>
@@ -32,16 +36,18 @@ export default function HomePage() {
                   size="lg"
                   className="bg-primary hover:bg-primary/90 text-lg px-8 py-6 font-bold text-white"
                 >
-                  ASOCIATE YA - $990 por mes
+                  AFILIATE YA!
                 </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="text-lg px-8 py-6 bg-transparent border-white text-white hover:bg-white hover:text-slate-900"
-                >
-                  <Phone className="mr-2 h-5 w-5" />
-                  Llamar 0099 218 183
-                </Button>
+                <a href={`tel:${phoneNumber}`}>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="text-lg px-8 py-6 bg-transparent border-white text-white hover:bg-white hover:text-slate-900"
+                  >
+                    <Phone className="mr-2 h-5 w-5" />
+                    Llamar 099 218 183
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
@@ -57,7 +63,7 @@ export default function HomePage() {
                   </h2>
                   <div className="space-y-4 text-slate-700">
                     <p className="text-lg leading-relaxed">
-                      Arrancamos en 1990 como un taller de barrio. Tres décadas
+                      Arrancamos en 1986 como un taller de barrio. Tres décadas
                       después, somos la empresa de auxilio mecánico más
                       confiable de Montevideo.
                     </p>
@@ -388,9 +394,7 @@ export default function HomePage() {
                   </span>
                 </div>
               </div>
-
               <GoogleReviews />
-
               <div className="text-center mt-12">
                 <Button
                   variant="outline"
@@ -423,13 +427,15 @@ export default function HomePage() {
                 </span>
               </div>
             </div>
-            <Button
-              size="lg"
-              className="mt-8 bg-primary hover:bg-primary/90 font-bold text-white"
-            >
-              <Wrench className="mr-2 h-5 w-5" />
-              LLAMAR AHORA
-            </Button>
+            <a href={`tel:${phoneNumber}`}>
+              <Button
+                size="lg"
+                className="mt-8 bg-primary hover:bg-primary/90 font-bold text-white"
+              >
+                <Wrench className="mr-2 h-5 w-5" />
+                LLAMAR AHORA
+              </Button>
+            </a>
           </div>
         </section>
       </main>
