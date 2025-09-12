@@ -12,9 +12,12 @@ export default function Header() {
     <header className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
-            <Wrench className="h-8 w-8 text-primary" />
-            <h1 className="text-2xl font-bold text-foreground">MOTOSERVICE</h1>
+          <Link href="/" className="flex items-center">
+            <img
+              src="/motoservice-logo.png"
+              alt="MOTOSERVICE"
+              className="h-14 w-40"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -47,10 +50,15 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center space-x-4">
-            <Button className="bg-primary hover:bg-primary/90 hidden sm:flex">
-              <Phone className="h-4 w-4 mr-2" />
-              Llamar Ahora
-            </Button>
+            <a
+              href="tel:+59899218183"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <Button className="bg-primary hover:bg-primary/90 hidden sm:flex">
+                <Phone className="h-4 w-4 mr-2" />
+                Llamar Ahora
+              </Button>
+            </a>
 
             {/* Mobile Menu Button */}
             <button
