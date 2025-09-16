@@ -58,7 +58,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-center">
                 <Phone className="h-4 w-4 mr-2" />
-                +598 99 123 456
+                +598 99 218 183
               </li>
               <li>info@motoservice.uy</li>
               <li className="flex items-center">
