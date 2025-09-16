@@ -10,6 +10,7 @@ import {
   Star,
 } from "lucide-react";
 import GoogleReviews from "@/components/google-reviews";
+import { CoberturaMap } from "@/components/google.map";
 
 export default function HomePage() {
   const phoneNumber = "+59899218183";
@@ -167,7 +168,7 @@ export default function HomePage() {
                     Pago fácil
                   </h3>
                   <p className="text-slate-600">
-                    $990 por mes. Sin letra chica, sin complicaciones.
+                    $590 por mes. Sin letra chica, sin complicaciones.
                   </p>
                 </CardContent>
               </Card>
@@ -217,25 +218,18 @@ export default function HomePage() {
                       Tiempo de respuesta promedio
                     </h4>
                     <div className="text-2xl font-bold text-primary">
-                      15-25 min
+                      30-50 min
                     </div>
                     <p className="text-sm text-slate-300">
                       En horarios normales
                     </p>
                   </div>
                 </div>
+
                 <div className="lg:col-span-3">
                   <div className="bg-slate-200 rounded-lg p-12 text-center h-96 flex flex-col justify-center items-center">
-                    <MapPin className="h-24 w-24 text-primary mx-auto mb-6" />
-                    <h3 className="text-2xl font-bold text-slate-900 mb-4">
-                      Mapa de cobertura completa
-                    </h3>
-                    <p className="text-slate-600 text-lg">
-                      Montevideo y área metropolitana
-                    </p>
-                    <p className="text-sm text-slate-500 mt-4">
-                      Cobertura garantizada en toda la zona marcada
-                    </p>
+                    {/* Your map component will be placed here */}
+                    <CoberturaMap />
                   </div>
                 </div>
               </div>
@@ -395,14 +389,6 @@ export default function HomePage() {
                 </div>
               </div>
               <GoogleReviews />
-              <div className="text-center mt-12">
-                <Button
-                  variant="outline"
-                  className="border-slate-300 text-slate-700 hover:bg-slate-50 bg-transparent"
-                >
-                  Ver todas las reseñas en Google
-                </Button>
-              </div>
             </div>
           </div>
         </section>
