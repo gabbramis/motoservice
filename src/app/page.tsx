@@ -10,12 +10,9 @@ import {
   Star,
 } from "lucide-react";
 import GoogleReviews from "@/components/google-reviews";
-import { CoberturaMap } from "@/components/google.map";
 
 export default function HomePage() {
   const phoneNumber = "+59899218183";
-  const wppNumber = "+59899218183";
-  const wppMessage = "¡Hola! Estoy en la ruta y necesito asistencia.";
 
   return (
     <div className="min-h-screen">
@@ -227,10 +224,7 @@ export default function HomePage() {
                 </div>
 
                 <div className="lg:col-span-3">
-                  <div className="bg-slate-200 rounded-lg p-12 text-center h-96 flex flex-col justify-center items-center">
-                    {/* Your map component will be placed here */}
-                    <CoberturaMap />
-                  </div>
+                  <div className="bg-slate-200 rounded-lg p-12 text-center h-96 flex flex-col justify-center items-center"></div>
                 </div>
               </div>
             </div>
