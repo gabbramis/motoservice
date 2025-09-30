@@ -10,6 +10,7 @@ import {
   Star,
 } from "lucide-react";
 import { BrandWhatsapp } from "tabler-icons-react";
+import Image from "next/image";
 
 import GoogleReviews from "@/components/google-reviews";
 
@@ -21,12 +22,13 @@ export default function HomePage() {
       <main>
         <section className="relative w-full h-[500px] md:h-[600px] lg:h-[700px]">
           {/* Imagen de fondo */}
-          <img
+          <Image
             src="/motoservice-shop3.webp"
             alt="Taller de motos"
             width={712} // tamaño real mostrado
             height={534}
             sizes="(max-width: 768px) 100vw, 712px"
+            fetchPriority="high"
             className="absolute inset-0 w-full h-full object-cover"
           />
           {/* Overlay */}
@@ -253,7 +255,7 @@ export default function HomePage() {
 
                 <div className="lg:col-span-3">
                   <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <img
+                    <Image
                       src="/coverage-map-purple-fixed.webp"
                       alt="Mapa de cobertura"
                       width={1200}
@@ -266,133 +268,6 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-
-        {/* <section className="py-20 bg-slate-800">
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-16">
-                <h2 className="text-3xl font-bold mb-6 text-white">
-                  Nuestro taller
-                </h2>
-                <p className="text-xl text-slate-300 text-pretty leading-relaxed">
-                  Más de 30 años de experiencia se ven en cada herramienta, cada
-                  banco de trabajo y cada reparación que hacemos.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <Card className="bg-slate-700 border-slate-600 overflow-hidden">
-                  <div className="aspect-video bg-slate-600 flex items-center justify-center">
-                    <img
-                      src="/motorcycle-workshop-with-tools-and-workbench.jpg"
-                      alt="Taller principal con herramientas profesionales"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <CardContent className="p-4">
-                    <h3 className="font-bold text-white mb-2">
-                      Taller principal
-                    </h3>
-                    <p className="text-slate-300 text-sm">
-                      Equipado con herramientas profesionales para cualquier
-                      reparación
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-slate-700 border-slate-600 overflow-hidden">
-                  <div className="aspect-video bg-slate-600 flex items-center justify-center">
-                    <img
-                      src="/motorcycle-mechanic-working-on-engine-repair.jpg"
-                      alt="Mecánico trabajando en motor de motocicleta"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <CardContent className="p-4">
-                    <h3 className="font-bold text-white mb-2">
-                      Mecánicos especializados
-                    </h3>
-                    <p className="text-slate-300 text-sm">
-                      Técnicos con décadas de experiencia en motocicletas
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-slate-700 border-slate-600 overflow-hidden">
-                  <div className="aspect-video bg-slate-600 flex items-center justify-center">
-                    <img
-                      src="/motorcycle-service-truck-with-tools-and-equipment.jpg"
-                      alt="Unidad móvil de auxilio mecánico"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <CardContent className="p-4">
-                    <h3 className="font-bold text-white mb-2">
-                      Unidades móviles
-                    </h3>
-                    <p className="text-slate-300 text-sm">
-                      Equipadas para resolver problemas donde estés
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-slate-700 border-slate-600 overflow-hidden">
-                  <div className="aspect-video bg-slate-600 flex items-center justify-center">
-                    <img
-                      src="/motorcycle-parts-and-spare-parts-storage.jpg"
-                      alt="Depósito de repuestos para motocicletas"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <CardContent className="p-4">
-                    <h3 className="font-bold text-white mb-2">
-                      Stock de repuestos
-                    </h3>
-                    <p className="text-slate-300 text-sm">
-                      Repuestos originales y alternativos siempre disponibles
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-slate-700 border-slate-600 overflow-hidden">
-                  <div className="aspect-video bg-slate-600 flex items-center justify-center">
-                    <img
-                      src="/motorcycle-diagnostic-equipment-and-tools.jpg"
-                      alt="Equipos de diagnóstico para motocicletas"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <CardContent className="p-4">
-                    <h3 className="font-bold text-white mb-2">
-                      Equipos de diagnóstico
-                    </h3>
-                    <p className="text-slate-300 text-sm">
-                      Tecnología moderna para detectar cualquier problema
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-slate-700 border-slate-600 overflow-hidden">
-                  <div className="aspect-video bg-slate-600 flex items-center justify-center">
-                    <img
-                      src="/motorcycle-workshop-office-and-customer-service-ar.jpg"
-                      alt="Oficina de atención al cliente"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <CardContent className="p-4">
-                    <h3 className="font-bold text-white mb-2">
-                      Atención al cliente
-                    </h3>
-                    <p className="text-slate-300 text-sm">
-                      Espacio cómodo para trámites y consultas
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </div>
-        </section>*/}
 
         <section className="py-20 bg-slate-100">
           <div className="container mx-auto px-4">
