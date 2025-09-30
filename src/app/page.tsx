@@ -241,7 +241,13 @@ export default function HomePage() {
                 </div>
 
                 <div className="lg:col-span-3">
-                  <div className="bg-slate-200 rounded-lg p-12 text-center h-96 flex flex-col justify-center items-center"></div>
+                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <img
+                      src="/coverage-map.png"
+                      alt="Mapa de cobertura"
+                      className="w-full h-auto object-contain"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
