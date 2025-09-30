@@ -14,7 +14,7 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center">
             <img
-              src="/motoservice-logo.png"
+              src="/motoservice-logo.webp"
               alt="MOTOSERVICE"
               className="h-14 w-40"
             />

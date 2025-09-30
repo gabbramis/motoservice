@@ -22,7 +22,7 @@ export default function HomePage() {
         <section className="relative w-full h-[500px] md:h-[600px] lg:h-[700px]">
           {/* Imagen de fondo */}
           <img
-            src="/motoservice-shop3.jpg"
+            src="/motoservice-shop3.webp"
             alt="Taller de motos"
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -251,7 +251,7 @@ export default function HomePage() {
                 <div className="lg:col-span-3">
                   <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <img
-                      src="/coverage-map-purple-fixed.png"
+                      src="/coverage-map-purple-fixed.webp"
                       alt="Mapa de cobertura"
                       className="w-full h-auto object-contain"
                     />
