@@ -24,6 +24,9 @@ export default function HomePage() {
           <img
             src="/motoservice-shop3.webp"
             alt="Taller de motos"
+            width={712} // tamaño real mostrado
+            height={534}
+            sizes="(max-width: 768px) 100vw, 712px"
             className="absolute inset-0 w-full h-full object-cover"
           />
           {/* Overlay */}
@@ -253,6 +256,8 @@ export default function HomePage() {
                     <img
                       src="/coverage-map-purple-fixed.webp"
                       alt="Mapa de cobertura"
+                      width={1200}
+                      height={630}
                       className="w-full h-auto object-contain"
                     />
                   </div>

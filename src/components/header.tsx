@@ -16,6 +16,8 @@ export default function Header() {
             <img
               src="/motoservice-logo.webp"
               alt="MOTOSERVICE"
+              width={160}
+              height={56}
               className="h-14 w-40"
             />
           </Link>
