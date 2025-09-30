@@ -9,6 +9,8 @@ import {
   CheckCircle,
   Star,
 } from "lucide-react";
+import { BrandWhatsapp } from "tabler-icons-react";
+
 import GoogleReviews from "@/components/google-reviews";
 
 export default function HomePage() {
@@ -30,12 +32,19 @@ export default function HomePage() {
                 de verdad.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-lg px-8 py-6 font-bold text-white"
+                <a
+                  href={`https://wa.me/${phoneNumber}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  AFILIATE YA!
-                </Button>
+                  <Button
+                    size="lg"
+                    className="bg-green-500 hover:bg-green-600 text-white text-lg px-8 py-6 font-bold flex items-center justify-center gap-2"
+                  >
+                    <BrandWhatsapp size={24} />
+                    Whatsapp
+                  </Button>
+                </a>
                 <a href={`tel:${phoneNumber}`}>
                   <Button
                     size="lg"
@@ -135,37 +144,45 @@ export default function HomePage() {
               Lo que incluye tu membresía
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Auxilio rápido */}
               <Card className="border-2 border-slate-200 hover:border-primary transition-colors">
                 <CardContent className="pt-6 text-center">
                   <Shield className="h-12 w-12 text-primary mx-auto mb-4" />
                   <h3 className="font-bold text-lg mb-2 text-slate-900">
-                    Auxilio sin límites
+                    Auxilio al instante
                   </h3>
                   <p className="text-slate-600">
-                    Lubricación gratis, mecánica ligera, pinchazos y todo lo que
-                    necesitás para seguir rodando.
+                    Mecanica ligera y gomeria. Hasta 2 pinchazos gratis al mes
+                    de 8 a 19 hs. Si no se puede, te trasladamos al taller sin
+                    complicaciones.
                   </p>
                 </CardContent>
               </Card>
+
+              {/* Servicio en el local */}
               <Card className="border-2 border-slate-200 hover:border-primary transition-colors">
                 <CardContent className="pt-6 text-center">
                   <MapPin className="h-12 w-12 text-secondary mx-auto mb-4" />
                   <h3 className="font-bold text-lg mb-2 text-slate-900">
-                    Cobertura total
+                    Para socios en el taller GRATIS
                   </h3>
                   <p className="text-slate-600">
-                    Todo Montevideo y Canelones. Donde vayas, llegamos.
+                    Lubricación, regulación de cadena, frenos y cables de
+                    embriague o acelerador, mano de obra en cambio de aceite.
                   </p>
                 </CardContent>
               </Card>
+
+              {/* Pago fácil */}
               <Card className="border-2 border-slate-200 hover:border-primary transition-colors">
                 <CardContent className="pt-6 text-center">
                   <Clock className="h-12 w-12 text-accent mx-auto mb-4" />
                   <h3 className="font-bold text-lg mb-2 text-slate-900">
-                    Pago fácil
+                    Pago simple
                   </h3>
                   <p className="text-slate-600">
-                    $590 por mes. Sin letra chica, sin complicaciones.
+                    $590/mes. Pagá como quieras: Abitab, débito OCA o
+                    transferencia. Sin letra chica, sin complicaciones.
                   </p>
                 </CardContent>
               </Card>
@@ -231,7 +248,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="py-20 bg-slate-800">
+        {/* <section className="py-20 bg-slate-800">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
@@ -356,7 +373,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </section>
+        </section>*/}
 
         <section className="py-20 bg-slate-100">
           <div className="container mx-auto px-4">
