@@ -19,43 +19,51 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       <main>
-        <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20 text-white">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-6xl font-bold text-balance mb-6 text-white">
-                Tu moto, nuestro{" "}
-                <span className="text-primary">compromiso</span>
-              </h1>
-              <p className="text-xl text-slate-300 text-pretty mb-8 leading-relaxed">
-                Más de 30 años arreglando motos. Sabemos lo que hacemos y
-                estamos cuando nos necesitás. Auxilio real, hecho por mecánicos
-                de verdad.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href={`https://wa.me/${phoneNumber}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+        <section className="relative w-full h-[500px] md:h-[600px] lg:h-[700px]">
+          {/* Imagen de fondo */}
+          <img
+            src="/motoservice-shop3.jpg"
+            alt="Taller de motos"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-slate-900/60"></div>
+
+          {/* Contenido */}
+          <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center text-white">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Tu moto, nuestro <span className="text-primary">compromiso</span>
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 max-w-2xl">
+              Más de 30 años arreglando motos. Sabemos lo que hacemos y estamos
+              cuando nos necesitás. Auxilio real, hecho por mecánicos de verdad.
+            </p>
+
+            {/* Botones siempre lado a lado */}
+            <div className="flex flex-wrap gap-4 justify-center">
+              <a
+                href={`https://wa.me/${phoneNumber}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  size="lg"
+                  className="bg-green-500 hover:bg-green-600 text-white text-lg px-8 py-6 font-bold flex items-center justify-center gap-2 whitespace-nowrap"
                 >
-                  <Button
-                    size="lg"
-                    className="bg-green-500 hover:bg-green-600 text-white text-lg px-8 py-6 font-bold flex items-center justify-center gap-2"
-                  >
-                    <BrandWhatsapp size={24} />
-                    Whatsapp
-                  </Button>
-                </a>
-                <a href={`tel:${phoneNumber}`}>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="text-lg px-8 py-6 bg-transparent border-white text-white hover:bg-white hover:text-slate-900"
-                  >
-                    <Phone className="mr-2 h-5 w-5" />
-                    Llamar 099 218 183
-                  </Button>
-                </a>
-              </div>
+                  <BrandWhatsapp size={24} />
+                  Whatsapp
+                </Button>
+              </a>
+              <a href={`tel:${phoneNumber}`}>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-lg px-8 py-6 bg-transparent border-white text-white hover:bg-white hover:text-slate-900 whitespace-nowrap"
+                >
+                  <Phone className="mr-2 h-5 w-5" />
+                  Llamar 099 218 183
+                </Button>
+              </a>
             </div>
           </div>
         </section>
@@ -243,7 +251,7 @@ export default function HomePage() {
                 <div className="lg:col-span-3">
                   <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <img
-                      src="/coverage-map.png"
+                      src="/coverage-map-purple-fixed.png"
                       alt="Mapa de cobertura"
                       className="w-full h-auto object-contain"
                     />
