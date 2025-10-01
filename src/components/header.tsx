@@ -101,13 +101,7 @@ export default function Header() {
               >
                 Nosotros
               </Link>
-              <Link
-                href="/cobertura"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Cobertura
-              </Link>
+
               <Link
                 href="/contacto"
                 className="text-muted-foreground hover:text-foreground transition-colors"

@@ -2,7 +2,7 @@ import type React from "react";
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 import { Suspense } from "react";
 
 import "./globals.css";
@@ -93,7 +93,20 @@ export default function RootLayout({
         <Header />
         <Suspense fallback={null}>{children}</Suspense>
         <Footer />
-        <Analytics />
+        {process.env.NODE_ENV === "production" && (
+          <>
+            <Script src="https://www.googletagmanager.com/gtag/js?id=G-FGVGFPNW6L" />
+            <Script id="gtag-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', 'G-FGVGFPNW6L');
+              `}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );
