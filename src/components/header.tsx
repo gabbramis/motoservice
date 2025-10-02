@@ -7,6 +7,7 @@ import { useState } from "react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const phoneNumber = "+59899218183";
 
   return (
     <header className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-50">
@@ -83,36 +84,37 @@ export default function Header() {
               <Link
                 href="/"
                 className="text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setIsMenuOpen(false)}
               >
                 Inicio
               </Link>
               <Link
                 href="/servicios"
                 className="text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setIsMenuOpen(false)}
               >
                 Servicios
               </Link>
-              <Link
-                href="/nosotros"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Nosotros
-              </Link>
 
+              <Link
+                href="/como-afiliarse"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Cómo Afiliarse
+              </Link>
               <Link
                 href="/contacto"
                 className="text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setIsMenuOpen(false)}
               >
                 Contacto
               </Link>
-              <Button className="bg-primary hover:bg-primary/90 w-full">
-                <Phone className="h-4 w-4 mr-2" />
-                Llamar Ahora
-              </Button>
+              <a href={`tel:${phoneNumber}`}>
+                <Button
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 w-full"
+                >
+                  <Phone className="mr-2 h-5 w-5" />
+                  099 218 183
+                </Button>
+              </a>
             </div>
           </nav>
         )}

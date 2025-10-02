@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -45,67 +45,102 @@ const manualReviews = [
   {
     author_name: "Silvano Vignolo",
     rating: 5,
-    text: "un gran reconocimiento a Oscar por su amabilidad y experiencia en reparación de motos. Un abrazo a mi tocaya Silvana y a todos los jóvenes empleados tan serviciales. Para decirlo en pocas palabras...solo pon las estrellas que necesitas 🤗. En este caso concreto las estrellas que le atribuyo son ************** (14) 👋🤗",
+    text: "Un gran reconocimiento a Oscar por su amabilidad y experiencia en reparación de motos. Para decirlo en pocas palabras...solo pon las estrellas que necesitas 🤗",
     avatar_url:
       "https://lh3.googleusercontent.com/a-/ALV-UjV8OSfJcaumsLUCH1n_DW0Dl8GXItAPE0xzIxNpAYzUc17oMz8=s64-c-rp-mo-ba4-br100",
   },
   {
     author_name: "Javier Rodriguez",
     rating: 5,
-    text: "He llevado la moto de la empresa y la mía propia y el servicio y la atención son exelentes, la verdad es muy recomendado el lugar",
+    text: "He llevado la moto de la empresa y la mía propia y el servicio y la atención son excelentes, la verdad es muy recomendado el lugar",
     avatar_url:
       "https://lh3.googleusercontent.com/a-/ALV-UjUoa4CFmiMr_lt9-1IqiLBBCdGepJ1_3lEeau2Z3nQFv5mdsujqKQ=s64-c-rp-mo-ba4-br100",
   },
 ];
 
+const ReviewCard = ({ review }: { review: (typeof manualReviews)[0] }) => (
+  <Card className="w-[260px] sm:w-[280px] md:w-[300px] lg:w-[320px] mx-2 bg-white/80 dark:bg-slate-800/70 backdrop-blur-md shadow-md rounded-xl border border-transparent flex-shrink-0">
+    <CardContent className="relative p-5">
+      <div className="absolute top-3 right-3">
+        <GoogleIcon />
+      </div>
+      <div className="flex items-center mb-2">
+        {[...Array(review.rating)].map((_, i) => (
+          <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+        ))}
+      </div>
+      <p className="text-sm text-slate-800 dark:text-slate-100 mb-3 italic leading-relaxed">
+        {review.text}
+      </p>
+      <div className="flex items-center gap-2">
+        <Avatar>
+          <AvatarImage src={review.avatar_url} />
+          <AvatarFallback>
+            {review.author_name
+              .split(" ")
+              .map((n) => n[0])
+              .join("")}
+          </AvatarFallback>
+        </Avatar>
+        <div>
+          <div className="text-sm font-semibold text-slate-900 dark:text-white">
+            {review.author_name}
+          </div>
+        </div>
+      </div>
+    </CardContent>
+  </Card>
+);
+
 const GoogleReviews = () => {
+  const marqueeRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = marqueeRef.current;
+    if (!el) return;
+
+    const pause = () => (el.style.animationPlayState = "paused");
+    const play = () => (el.style.animationPlayState = "running");
+
+    el.addEventListener("touchstart", pause);
+    el.addEventListener("touchend", play);
+    el.addEventListener("mousedown", pause);
+    el.addEventListener("mouseup", play);
+
+    return () => {
+      el.removeEventListener("touchstart", pause);
+      el.removeEventListener("touchend", play);
+      el.removeEventListener("mousedown", pause);
+      el.removeEventListener("mouseup", play);
+    };
+  }, []);
+
   return (
-    <div className="w-full overflow-hidden">
-      {manualReviews.length > 0 ? (
-        <Marquee pauseOnHover className="[--duration:20s]">
+    <div className="relative w-full overflow-hidden py-8">
+      {/* Fade suave en extremos */}
+      <div
+        className="absolute inset-y-0 left-0 w-16 z-20 pointer-events-none"
+        style={{
+          maskImage: "linear-gradient(to right, rgba(0,0,0,0), black 70%)",
+          WebkitMaskImage:
+            "linear-gradient(to right, rgba(0,0,0,0), black 70%)",
+        }}
+      />
+      <div
+        className="absolute inset-y-0 right-0 w-16 z-20 pointer-events-none"
+        style={{
+          maskImage: "linear-gradient(to left, rgba(0,0,0,0), black 70%)",
+          WebkitMaskImage: "linear-gradient(to left, rgba(0,0,0,0), black 70%)",
+        }}
+      />
+
+      <div ref={marqueeRef}>
+        <Marquee pauseOnHover className="flex gap-4 [--duration:25s]">
           {manualReviews.map((review, index) => (
-            <Card
-              key={index}
-              className="w-[400px] border-slate-200 shadow-lg mx-2"
-            >
-              <CardContent className="p-6 relative">
-                <div className="absolute top-4 right-4">
-                  <GoogleIcon />
-                </div>
-                <div className="flex items-center space-x-1 mb-4">
-                  {[...Array(review.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="h-4 w-4 fill-yellow-400 text-yellow-400"
-                    />
-                  ))}
-                </div>
-                <p className="text-slate-700 mb-4 italic">{review.text}</p>
-                <div className="flex items-center space-x-2">
-                  <Avatar>
-                    <AvatarImage src={review.avatar_url} />
-                    <AvatarFallback>
-                      {review.author_name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div className="text-sm">
-                    <div className="font-semibold text-slate-900">
-                      {review.author_name}
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <ReviewCard key={index} review={review} />
           ))}
         </Marquee>
-      ) : (
-        <p className="col-span-full text-center text-slate-600">
-          No hay reseñas disponibles.
-        </p>
-      )}
+      </div>
     </div>
   );
 };

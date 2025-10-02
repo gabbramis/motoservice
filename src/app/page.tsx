@@ -8,6 +8,10 @@ import {
   Phone,
   CheckCircle,
   Star,
+  Award,
+  Users,
+  Zap,
+  ArrowRight,
 } from "lucide-react";
 import { BrandWhatsapp } from "tabler-icons-react";
 import Image from "next/image";
@@ -17,316 +21,461 @@ import GoogleReviews from "@/components/google-reviews";
 export default function HomePage() {
   const phoneNumber = "+59899218183";
 
+  const features = [
+    {
+      icon: Shield,
+      title: "Auxilio 24/7",
+      description:
+        "Mecánica ligera y gomería en el lugar. Hasta 2 pinchazos gratis al mes. Si no podemos arreglarlo donde estás, te trasladamos al taller sin costo.",
+    },
+    {
+      icon: Wrench,
+      title: "Servicios en taller",
+      description:
+        "Lubricación, regulación de cadena, frenos y cables incluidos. Mano de obra gratuita en cambio de aceite para todos los socios.",
+    },
+    {
+      icon: Clock,
+      title: "Sin complicaciones",
+      description:
+        "$590/mes. Pagá en Abitab, débito OCA o transferencia. Sin letra chica, sin sorpresas.",
+    },
+  ];
+
+  const stats = [
+    { value: "30+", label: "Años de trayectoria" },
+    { value: "5000+", label: "Clientes activos" },
+    { value: "24/7", label: "Siempre disponibles" },
+    { value: "4.8★", label: "Valoración Google" },
+  ];
+
+  const commitments = [
+    "Mecánicos certificados con experiencia comprobada",
+    "Unidades equipadas con herramientas profesionales",
+    "Tiempo de respuesta de 30-50 minutos promedio",
+    "Precios transparentes sin costos ocultos",
+  ];
+
+  const coverageAreas = [
+    {
+      title: "Costa Este",
+      description: "Hasta el peaje El Pinar",
+    },
+    {
+      title: "Zona Oeste",
+      description: "Hasta Santiago Vázquez",
+    },
+    {
+      title: "Zona Norte",
+      description: "Hasta Puente Colón – La Paz – Pando",
+    },
+  ];
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       <main>
-        <section className="relative w-full h-[500px] md:h-[600px] lg:h-[700px]">
-          {/* Imagen de fondo */}
+        {/* Hero Section - Premium */}
+        <section className="relative w-full min-h-[600px] sm:min-h-[700px] lg:min-h-[700px] flex items-center">
           <Image
             src="/motoservice-shop3.webp"
-            alt="Taller de motos"
-            width={712} // tamaño real mostrado
+            alt="Taller de motos Motoservice - Auxilio mecánico en Montevideo"
+            width={712}
             height={534}
             sizes="(max-width: 768px) 100vw, 712px"
             fetchPriority="high"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-slate-900/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/95 via-slate-900/90 to-slate-950/95"></div>
 
-          {/* Contenido */}
-          <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center text-white">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Tu moto, nuestro <span className="text-primary">compromiso</span>
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-2xl">
-              Más de 30 años arreglando motos. Sabemos lo que hacemos y estamos
-              cuando nos necesitás. Auxilio real, hecho por mecánicos de verdad.
-            </p>
-
-            {/* Botones siempre lado a lado */}
-            <div className="flex flex-wrap gap-4 justify-center">
-              <a
-                href={`https://wa.me/${phoneNumber}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button
-                  size="lg"
-                  className="bg-green-500 hover:bg-green-600 text-white text-lg px-8 py-6 font-bold flex items-center justify-center gap-2 whitespace-nowrap"
-                >
-                  <BrandWhatsapp size={24} />
-                  Whatsapp
-                </Button>
-              </a>
-              <a href={`tel:${phoneNumber}`}>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="text-lg px-8 py-6 bg-transparent border-white text-white hover:bg-white hover:text-slate-900 whitespace-nowrap"
-                >
-                  <Phone className="mr-2 h-5 w-5" />
-                  Llamar 099 218 183
-                </Button>
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 bg-slate-100">
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                  <h2 className="text-3xl font-bold mb-6 text-slate-900">
-                    Más de 30 años en la ruta
-                  </h2>
-                  <div className="space-y-4 text-slate-700">
-                    <p className="text-lg leading-relaxed">
-                      Arrancamos en 1986 como un taller de barrio. Tres décadas
-                      después, somos la empresa de auxilio mecánico más
-                      confiable de Montevideo.
-                    </p>
-                    <p className="leading-relaxed">
-                      Nuestro fundador, un mecánico de toda la vida, entendió
-                      que los motociclistas necesitaban algo más que promesas:
-                      necesitaban un servicio real, con herramientas de verdad y
-                      conocimiento que solo da la experiencia.
-                    </p>
-                    <p className="leading-relaxed">
-                      Hoy tenemos unidades radiocontroladas, mecánicos
-                      especializados y la confianza de miles de motociclistas
-                      que saben que cuando llaman, vamos.
-                    </p>
-                  </div>
-                  <div className="grid grid-cols-2 gap-6 mt-8">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-primary">30+</div>
-                      <div className="text-sm text-slate-600">
-                        Años de experiencia
-                      </div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-primary">
-                        5000+
-                      </div>
-                      <div className="text-sm text-slate-600">
-                        Motociclistas atendidos
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-slate-800 rounded-lg p-8 text-white">
-                  <Wrench className="h-16 w-16 text-primary mb-6" />
-                  <h3 className="text-2xl font-bold mb-4 text-white">
-                    Nuestro compromiso
-                  </h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-center space-x-3">
-                      <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
-                      <span className="text-white">
-                        Mecánicos con experiencia real
-                      </span>
-                    </li>
-                    <li className="flex items-center space-x-3">
-                      <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
-                      <span className="text-white">
-                        Herramientas profesionales en cada unidad
-                      </span>
-                    </li>
-                    <li className="flex items-center space-x-3">
-                      <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
-                      <span className="text-white">Respuesta rápida, 24/7</span>
-                    </li>
-                    <li className="flex items-center space-x-3">
-                      <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
-                      <span className="text-white">
-                        Precios justos, sin sorpresas
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12 text-slate-900">
-              Lo que incluye tu membresía
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Auxilio rápido */}
-              <Card className="border-2 border-slate-200 hover:border-primary transition-colors">
-                <CardContent className="pt-6 text-center">
-                  <Shield className="h-12 w-12 text-primary mx-auto mb-4" />
-                  <h3 className="font-bold text-lg mb-2 text-slate-900">
-                    Auxilio al instante
-                  </h3>
-                  <p className="text-slate-600">
-                    Mecanica ligera y gomeria. Hasta 2 pinchazos gratis al mes
-                    de 8 a 19 hs. Si no se puede, te trasladamos al taller sin
-                    complicaciones.
-                  </p>
-                </CardContent>
-              </Card>
-
-              {/* Servicio en el local */}
-              <Card className="border-2 border-slate-200 hover:border-primary transition-colors">
-                <CardContent className="pt-6 text-center">
-                  <MapPin className="h-12 w-12 text-secondary mx-auto mb-4" />
-                  <h3 className="font-bold text-lg mb-2 text-slate-900">
-                    Para socios en el taller GRATIS
-                  </h3>
-                  <p className="text-slate-600">
-                    Lubricación, regulación de cadena, frenos y cables de
-                    embriague o acelerador, mano de obra en cambio de aceite.
-                  </p>
-                </CardContent>
-              </Card>
-
-              {/* Pago fácil */}
-              <Card className="border-2 border-slate-200 hover:border-primary transition-colors">
-                <CardContent className="pt-6 text-center">
-                  <Clock className="h-12 w-12 text-accent mx-auto mb-4" />
-                  <h3 className="font-bold text-lg mb-2 text-slate-900">
-                    Pago simple
-                  </h3>
-                  <p className="text-slate-600">
-                    $590/mes. Pagá como quieras: Abitab, débito OCA o
-                    transferencia. Sin letra chica, sin complicaciones.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20 bg-slate-50">
-          <div className="container mx-auto px-4">
-            <div className="max-w-7xl mx-auto">
-              <h2 className="text-3xl font-bold text-center mb-12 text-slate-900">
-                Zona de cobertura
-              </h2>
-              <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
-                <div className="lg:col-span-2 space-y-6">
-                  <div className="flex items-start space-x-4">
-                    <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-bold text-lg text-slate-900">
-                        Por la Costa
-                      </h3>
-                      <p className="text-slate-600">Hasta el peaje El Pinar</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-4">
-                    <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-bold text-lg text-slate-900">
-                        Por el Oeste
-                      </h3>
-                      <p className="text-slate-600">Hasta Santiago Vázquez</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-4">
-                    <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-bold text-lg text-slate-900">
-                        Por el Norte
-                      </h3>
-                      <p className="text-slate-600">
-                        Hasta Puente Colón – La Paz – Pando
-                      </p>
-                    </div>
-                  </div>
-                  <div className="bg-slate-800 rounded-lg p-6 text-white">
-                    <h4 className="font-bold mb-2">
-                      Tiempo de respuesta promedio
-                    </h4>
-                    <div className="text-2xl font-bold text-primary">
-                      30-50 min
-                    </div>
-                    <p className="text-sm text-slate-300">
-                      En horarios normales
-                    </p>
-                  </div>
-                </div>
-
-                <div className="lg:col-span-3">
-                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <Image
-                      src="/coverage-map-purple-fixed.webp"
-                      alt="Mapa de cobertura"
-                      width={1200}
-                      height={630}
-                      className="w-full h-auto object-contain"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20 bg-slate-100">
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-16">
-                <h2 className="text-3xl font-bold mb-6 text-slate-900">
-                  Lo que dicen nuestros clientes
-                </h2>
-                <div className="flex items-center justify-center space-x-2 mb-4">
-                  <div className="flex space-x-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="h-6 w-6 fill-yellow-400 text-yellow-400"
-                      />
-                    ))}
-                  </div>
-                  <span className="text-xl font-bold text-slate-900">
-                    4.8/5
-                  </span>
-                  <span className="text-slate-600">
-                    (127 reseñas en Google)
+          <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 py-20">
+            <div className="container mx-auto max-w-7xl">
+              <div className="max-w-4xl">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/20 backdrop-blur-md mb-6 sm:mb-8">
+                  <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                  <span className="text-red-400 text-sm font-medium">
+                    Disponibles 24/7 • Respuesta inmediata
                   </span>
                 </div>
+
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 text-white leading-[1.1]">
+                  Auxilio mecánico
+                  <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-600 to-red-500">
+                    cuando lo necesitás
+                  </span>
+                </h1>
+
+                <p className="text-lg sm:text-xl lg:text-2xl mb-10 sm:mb-12 text-slate-300 leading-relaxed max-w-2xl">
+                  Más de 30 años resolviendo problemas en la ruta. Mecánicos
+                  profesionales, herramientas reales, soluciones garantizadas.
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a
+                    href={`https://wa.me/${phoneNumber}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group"
+                  >
+                    <Button
+                      size="lg"
+                      className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-7 font-semibold shadow-xl shadow-green-500/20 hover:shadow-2xl hover:shadow-green-500/30 transition-all duration-300 hover:scale-105"
+                    >
+                      <BrandWhatsapp size={24} className="mr-2" />
+                      WhatsApp
+                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </a>
+                  <a href={`tel:${phoneNumber}`}>
+                    <Button
+                      size="lg"
+                      className="w-full sm:w-auto bg-slate-800/80 hover:bg-slate-700 border-2 border-slate-600/50 hover:border-slate-500 text-white backdrop-blur-md text-lg px-8 py-7 font-semibold transition-all duration-300"
+                    >
+                      <Phone className="mr-2 h-5 w-5" />
+                      099 218 183
+                    </Button>
+                  </a>
+                </div>
+
+                {/* Trust indicators */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 mt-12 sm:mt-16">
+                  {stats.map((stat, index) => (
+                    <div
+                      key={index}
+                      className="text-center p-4 rounded-xl bg-slate-800/30 backdrop-blur-md border border-slate-700/30"
+                    >
+                      <div className="text-2xl sm:text-3xl font-bold text-white mb-1">
+                        {stat.value}
+                      </div>
+                      <div className="text-xs sm:text-sm text-slate-400">
+                        {stat.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <GoogleReviews />
             </div>
           </div>
         </section>
 
-        <section className="py-16 bg-slate-900 text-center">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12 text-white">
-              ¿Problemas en la ruta?
-            </h2>
-            <p className="text-xl mb-8 text-slate-300 text-center">
-              Llamanos ahora. Estamos las 24 horas, todos los días del año.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <div className="flex items-center space-x-2 text-lg">
-                <Phone className="h-6 w-6 text-primary" />
-                <span className="font-bold text-white">+598 099 218 183</span>
-              </div>
-              <div className="flex items-center space-x-2 text-lg">
-                <Phone className="h-6 w-6 text-primary" />
-                <span className="font-bold text-white">
-                  2402 2325 / 2402 5947
+        {/* Membresía */}
+        <section className="py-15 sm:py-10 lg:py-28 px-4 sm:px-6 lg:px-8 bg-slate-950">
+          <div className="container mx-auto max-w-7xl">
+            {/* Encabezado */}
+            <div className="text-center mb-16 sm:mb-20">
+              <div className="inline-block mb-3">
+                <span className="text-red-500 font-semibold text-sm uppercase tracking-wider">
+                  Membresía
                 </span>
               </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-5">
+                Todo incluido por $590/mes
+              </h2>
+              <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto">
+                Sin costos ocultos, sin letra chica. Protección completa para tu
+                moto.
+              </p>
             </div>
-            <a href={`tel:${phoneNumber}`}>
-              <Button
-                size="lg"
-                className="mt-8 bg-primary hover:bg-primary/90 font-bold text-white"
-              >
-                <Wrench className="mr-2 h-5 w-5" />
-                LLAMAR AHORA
-              </Button>
-            </a>
+
+            {/* Features */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+              {features.map((feature, index) => (
+                <div
+                  key={index}
+                  className="group relative rounded-xl border border-slate-700/40 bg-slate-800/30 backdrop-blur-sm hover:border-red-500/40 transition-all duration-400 p-6"
+                >
+                  {/* Icono */}
+                  <div className="inline-flex p-3 rounded-xl bg-red-500/10 group-hover:bg-red-500/20 transition-colors duration-300 mb-4">
+                    <feature.icon className="h-6 w-6 text-red-500 group-hover:scale-110 transition-transform duration-300" />
+                  </div>
+
+                  {/* Título */}
+                  <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 group-hover:text-red-400 transition-colors duration-300">
+                    {feature.title}
+                  </h3>
+
+                  {/* Descripción */}
+                  <p className="text-slate-400 text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Coverage Section - Visual Focus */}
+        <section className="py-10 sm:py-15 lg:py-20 px-4 sm:px-6 lg:px-8 bg-slate-950">
+          <div className="container mx-auto max-w-7xl">
+            {/* Título */}
+            <div className="text-center mb-16 sm:mb-20">
+              <div className="inline-block mb-4">
+                <span className="text-red-500 font-semibold text-sm uppercase tracking-wider">
+                  Cobertura
+                </span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
+                Te cubrimos en toda la zona metropolitana
+              </h2>
+            </div>
+
+            {/* Contenido */}
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
+              {/* Lista de zonas */}
+              <div className="lg:col-span-2 space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 p-3 rounded-xl bg-red-500/10">
+                    <CheckCircle className="h-6 w-6 text-red-500" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-1">
+                      Por la Costa
+                    </h3>
+                    <p className="text-slate-400">Hasta el peaje El Pinar</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 p-3 rounded-xl bg-red-500/10">
+                    <CheckCircle className="h-6 w-6 text-red-500" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-1">
+                      Por el Oeste
+                    </h3>
+                    <p className="text-slate-400">Hasta Santiago Vázquez</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 p-3 rounded-xl bg-red-500/10">
+                    <CheckCircle className="h-6 w-6 text-red-500" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-1">
+                      Por el Norte
+                    </h3>
+                    <p className="text-slate-400">
+                      Hasta Puente Colón – La Paz – Pando
+                    </p>
+                  </div>
+                </div>
+
+                {/* Bloque tiempo de respuesta */}
+                <div className="bg-gradient-to-br from-red-500/10 to-red-600/10 border border-red-500/30 backdrop-blur-sm rounded-2xl p-6 text-white">
+                  <h4 className="font-bold mb-2">
+                    Tiempo de respuesta promedio
+                  </h4>
+                  <div className="text-3xl font-bold text-red-400">
+                    30-50 min
+                  </div>
+                  <p className="text-sm text-slate-300">En horarios normales</p>
+                </div>
+              </div>
+
+              {/* Imagen */}
+              <div className="lg:col-span-3">
+                <div className="relative rounded-3xl overflow-hidden border border-slate-700/50 shadow-2xl shadow-red-500/5">
+                  <Image
+                    src="/coverage-map-purple-fixed.webp"
+                    alt="Mapa de cobertura de servicio de auxilio mecánico en Montevideo y Canelones"
+                    width={1200}
+                    height={630}
+                    className="w-full h-auto"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* About Section - Storytelling */}
+        <section className="py-15 sm:py-10 lg:py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/30">
+          <div className="container mx-auto max-w-7xl">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              <div>
+                <div className="inline-block mb-4">
+                  <span className="text-red-500 font-semibold text-sm uppercase tracking-wider">
+                    Nuestra historia
+                  </span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 sm:mb-8 leading-tight">
+                  30 años de experiencia en cada servicio
+                </h2>
+                <div className="space-y-6 text-slate-300 text-lg leading-relaxed">
+                  <p>
+                    Comenzamos en 1986 como un pequeño taller de barrio. Hoy
+                    somos la referencia en auxilio mecánico para motociclistas
+                    en Montevideo y Canelones.
+                  </p>
+                  <p>
+                    Lo que nos diferencia es simple:{" "}
+                    <strong className="text-white">
+                      cumplimos lo que prometemos
+                    </strong>
+                    . Nuestros mecánicos tienen años de experiencia real,
+                    nuestras unidades están equipadas con herramientas
+                    profesionales, y cuando llamás, respondemos.
+                  </p>
+                  <p>
+                    Miles de motociclistas confían en nosotros porque saben que
+                    detrás del teléfono hay personas que entienden de motos y
+                    que van a estar ahí cuando más lo necesiten.
+                  </p>
+                </div>
+              </div>
+
+              <div className="relative">
+                <Card className="relative bg-gradient-to-br from-slate-800/90 to-slate-800/60 border border-slate-700/50 backdrop-blur-sm overflow-hidden">
+                  {/* Decorative elements */}
+                  <div className="absolute -top-20 -right-20 w-60 h-60 bg-red-500/10 rounded-full blur-3xl"></div>
+                  <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-red-500/10 rounded-full blur-3xl"></div>
+
+                  <CardContent className="relative p-8 sm:p-10">
+                    <div className="flex items-center gap-4 mb-8">
+                      <div className="p-4 rounded-2xl bg-red-500/10">
+                        <Shield className="h-10 w-10 text-red-500" />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-white">
+                          Nuestro compromiso
+                        </h3>
+                        <p className="text-slate-400 text-sm">
+                          Garantía de calidad
+                        </p>
+                      </div>
+                    </div>
+                    <ul className="space-y-5">
+                      {commitments.map((commitment, index) => (
+                        <li
+                          key={index}
+                          className="flex items-start gap-4 group"
+                        >
+                          <div className="flex-shrink-0 mt-1">
+                            <div className="p-1 rounded-full bg-red-500/20 group-hover:bg-red-500/30 transition-colors">
+                              <CheckCircle className="h-5 w-5 text-red-500" />
+                            </div>
+                          </div>
+                          <span className="text-slate-300 group-hover:text-white transition-colors">
+                            {commitment}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Reviews Section - Social Proof */}
+        <section className="py-5 sm:py-10 lg:py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/30">
+          <div className="container mx-auto max-w-7xl">
+            <div className="text-center mb-16 sm:mb-20">
+              <div className="inline-block mb-4">
+                <span className="text-red-500 font-semibold text-sm uppercase tracking-wider">
+                  Testimonios
+                </span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+                Miles de motociclistas confían en nosotros
+              </h2>
+              <div className="flex items-center justify-center gap-4 flex-wrap">
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="h-7 w-7 fill-yellow-400 text-yellow-400"
+                    />
+                  ))}
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-3xl font-bold text-white">4.8</span>
+                  <div className="text-left">
+                    <div className="text-sm text-slate-400">de 5 estrellas</div>
+                    <div className="text-xs text-slate-500">
+                      127 reseñas en Google
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <GoogleReviews />
+          </div>
+        </section>
+
+        {/* CTA Section - Responsive Optimized */}
+        <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-slate-950">
+          <div className="container mx-auto max-w-4xl">
+            <Card className="relative bg-gradient-to-br from-slate-800 via-slate-900/95 to-slate-950 border border-slate-800/60 overflow-hidden shadow-xl">
+              {/* Fondos animados (suaves en mobile) */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(239,68,68,0.08),transparent_70%)]"></div>
+              <div className="absolute top-0 right-0 w-64 h-64 sm:w-80 sm:h-80 bg-red-500/5 rounded-full blur-2xl animate-pulse"></div>
+              <div
+                className="absolute bottom-0 left-0 w-64 h-64 sm:w-80 sm:h-80 bg-red-500/5 rounded-full blur-2xl animate-pulse"
+                style={{ animationDelay: "1s" }}
+              ></div>
+
+              <CardContent className="relative p-6 sm:p-10 lg:p-16 text-center">
+                {/* Badge */}
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 backdrop-blur-sm mb-6 sm:mb-8">
+                  <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                  <span className="text-red-400 text-xs sm:text-sm font-medium">
+                    Disponibles ahora mismo
+                  </span>
+                </div>
+
+                {/* Título */}
+                <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 leading-snug">
+                  ¿Necesitás ayuda en este momento?
+                </h2>
+                <p className="text-base sm:text-lg text-slate-300 mb-8 sm:mb-10 leading-relaxed max-w-2xl mx-auto">
+                  Nuestro equipo está listo para asistirte las 24 horas. Llamá
+                  ahora y te atendemos al instante.
+                </p>
+
+                {/* Teléfonos */}
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-stretch mb-8 sm:mb-10">
+                  <div className="flex items-center gap-3 px-4 py-3 rounded-lg bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 flex-1">
+                    <Phone className="h-5 w-5 text-red-500" />
+                    <div className="text-left">
+                      <div className="text-xs text-slate-400">Principal</div>
+                      <div className="text-base sm:text-lg font-bold text-white">
+                        099 218 183
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 px-4 py-3 rounded-lg bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 flex-1">
+                    <Phone className="h-5 w-5 text-red-500" />
+                    <div className="text-left">
+                      <div className="text-xs text-slate-400">Alternativos</div>
+                      <div className="text-base sm:text-lg font-bold text-white space-y-0.5">
+                        <p>2402 2325</p>
+                        <p>2402 5947</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Botón */}
+                <a href={`tel:${phoneNumber}`}>
+                  <Button
+                    size="lg"
+                    className="w-full sm:w-auto bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-bold text-lg sm:text-xl px-8 sm:px-12 py-4 sm:py-6 shadow-lg shadow-red-500/30 hover:shadow-xl hover:shadow-red-500/40 transition-all duration-300 hover:scale-105"
+                  >
+                    <Phone className="mr-2 sm:mr-3 h-5 w-5 sm:h-6 sm:w-6" />
+                    LLAMAR AHORA
+                    <ArrowRight className="ml-2 sm:ml-3 h-5 w-5 sm:h-6 sm:w-6" />
+                  </Button>
+                </a>
+
+                <p className="mt-6 text-xs sm:text-sm text-slate-400">
+                  Respuesta inmediata • Sin esperas • Servicio profesional
+                  garantizado
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </section>
       </main>
