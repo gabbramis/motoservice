@@ -12,7 +12,7 @@ import Footer from "@/components/footer";
 export const metadata: Metadata = {
   title: "MotoService - Auxilio Mecánico de Motos 24hs en Montevideo",
   description:
-    "Auxilio mecánico de motos en Montevideo y zona costera. Pinchazos gratis, asistencia 24 horas y planes especiales para flotas. Servicio rápido y profesional.",
+    "Auxilio mecánico de motos en Montevideo y la costa. Pinchazos gratis, asistencia 24/7 y planes para flotas. Rápido, confiable y profesional.",
   keywords: [
     "auxilio motos Montevideo",
     "auxilio mecánico motos",
