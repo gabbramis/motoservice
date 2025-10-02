@@ -159,43 +159,46 @@ export default function HomePage() {
         </section>
 
         {/* Membresía */}
-        <section className="py-15 sm:py-10 lg:py-28 px-4 sm:px-6 lg:px-8 bg-slate-950">
-          <div className="container mx-auto max-w-7xl">
+        <section className="py-10 sm:py-14 lg:py-20 px-4 sm:px-6 lg:px-8 bg-slate-950">
+          <div className="container mx-auto max-w-6xl">
             {/* Encabezado */}
-            <div className="text-center mb-16 sm:mb-20">
-              <div className="inline-block mb-3">
-                <span className="text-red-500 font-semibold text-sm uppercase tracking-wider">
-                  Membresía
-                </span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-5">
+            <div className="text-center mb-10 sm:mb-14">
+              <span className="text-red-500 font-semibold text-xs sm:text-sm uppercase tracking-wider">
+                Membresía
+              </span>
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mt-2 mb-3">
                 Todo incluido por $590/mes
               </h2>
-              <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto">
+              <p className="text-sm sm:text-base text-slate-400 max-w-xl mx-auto leading-relaxed">
                 Sin costos ocultos, sin letra chica. Protección completa para tu
                 moto.
               </p>
             </div>
 
             {/* Features */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <div className="flex flex-col gap-4 sm:gap-6 items-center">
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className="group relative rounded-xl border border-slate-700/40 bg-slate-800/30 backdrop-blur-sm hover:border-red-500/40 transition-all duration-400 p-6"
+                  className="group relative w-full max-w-sm rounded-lg border border-slate-700/40 
+                     bg-slate-800/40 backdrop-blur-sm hover:border-red-500/40 
+                     transition-all duration-300 p-4 sm:p-5"
                 >
-                  {/* Icono */}
-                  <div className="inline-flex p-3 rounded-xl bg-red-500/10 group-hover:bg-red-500/20 transition-colors duration-300 mb-4">
-                    <feature.icon className="h-6 w-6 text-red-500 group-hover:scale-110 transition-transform duration-300" />
+                  {/* Icono + Título */}
+                  <div className="flex items-center gap-3 mb-2">
+                    <div
+                      className="inline-flex p-2 rounded-md bg-red-500/10 
+                            group-hover:bg-red-500/20 transition-colors duration-300"
+                    >
+                      <feature.icon className="h-5 w-5 text-red-500 group-hover:scale-110 transition-transform duration-300" />
+                    </div>
+                    <h3 className="text-base sm:text-lg font-semibold text-white group-hover:text-red-400 transition-colors duration-300">
+                      {feature.title}
+                    </h3>
                   </div>
 
-                  {/* Título */}
-                  <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 group-hover:text-red-400 transition-colors duration-300">
-                    {feature.title}
-                  </h3>
-
                   {/* Descripción */}
-                  <p className="text-slate-400 text-sm leading-relaxed">
+                  <p className="text-slate-400 text-sm leading-snug">
                     {feature.description}
                   </p>
                 </div>
