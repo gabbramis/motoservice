@@ -85,7 +85,7 @@ export default function HomePage() {
             fetchPriority="high"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/95 via-slate-900/90 to-slate-950/95"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/80 via-slate-900/75 to-slate-950/80"></div>
 
           <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 py-20">
             <div className="container mx-auto max-w-7xl">
