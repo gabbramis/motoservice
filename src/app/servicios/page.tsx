@@ -1,13 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Users,
-  Radio,
-  RotateCcw,
-  Droplets,
-  Wrench,
-  Clock,
-  Truck,
-} from "lucide-react";
+import { Users, Radio, Droplets, Wrench, Clock, Truck } from "lucide-react";
 
 export default function ServicesPage() {
   const services = [

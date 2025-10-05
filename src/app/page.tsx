@@ -52,21 +52,6 @@ export default function HomePage() {
     "Precios transparentes sin costos ocultos",
   ];
 
-  const coverageAreas = [
-    {
-      title: "Costa Este",
-      description: "Hasta el peaje El Pinar",
-    },
-    {
-      title: "Zona Oeste",
-      description: "Hasta Santiago Vázquez",
-    },
-    {
-      title: "Zona Norte",
-      description: "Hasta Puente Colón – La Paz – Pando",
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       <main>
