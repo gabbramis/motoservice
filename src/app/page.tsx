@@ -4,13 +4,9 @@ import {
   Shield,
   Clock,
   Wrench,
-  MapPin,
   Phone,
   CheckCircle,
   Star,
-  Award,
-  Users,
-  Zap,
   ArrowRight,
 } from "lucide-react";
 import { BrandWhatsapp } from "tabler-icons-react";
@@ -46,7 +42,7 @@ export default function HomePage() {
     { value: "30+", label: "Años de trayectoria" },
     { value: "5000+", label: "Clientes activos" },
     { value: "24/7", label: "Siempre disponibles" },
-    { value: "4.8★", label: "Valoración Google" },
+    { value: "4.2★", label: "Valoración Google" },
   ];
 
   const commitments = [
@@ -75,7 +71,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       <main>
         {/* Hero Section - Premium */}
-        <section className="relative w-full min-h-[600px] sm:min-h-[700px] lg:min-h-[700px] flex items-center">
+        <section className="relative w-full min-h-[500px] sm:min-h-[700px] lg:min-h-[700px] flex items-center">
           <Image
             src="/motoservice-shop3.webp"
             alt="Taller de motos Motoservice - Auxilio mecánico en Montevideo"
@@ -159,7 +155,7 @@ export default function HomePage() {
         </section>
 
         {/* Membresía */}
-        <section className="py-10 sm:py-14 lg:py-20 px-4 sm:px-6 lg:px-8 bg-slate-950">
+        <section className="py-10 sm:py-14 lg:py-10 px-4 sm:px-6 lg:px-8 bg-slate-950">
           <div className="container mx-auto max-w-6xl">
             {/* Encabezado */}
             <div className="text-center mb-10 sm:mb-14">
@@ -175,21 +171,20 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Features */}
-            <div className="flex flex-col gap-4 sm:gap-6 items-center">
+            {/* Features - MODIFICADO para igualar altura en PC */}
+            {/* NOTA: Eliminamos lg:items-start para que los elementos se estiren por defecto en la grilla */}
+            <div className="flex flex-col gap-4 sm:gap-6 items-center lg:grid lg:grid-cols-3 lg:gap-8">
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className="group relative w-full max-w-sm rounded-lg border border-slate-700/40 
-                     bg-slate-800/40 backdrop-blur-sm hover:border-red-500/40 
-                     transition-all duration-300 p-4 sm:p-5"
+                  // CLASE AGREGADA: h-full para asegurar que la altura sea igual a la del recuadro más alto.
+                  className="group relative w-full max-w-sm lg:max-w-none h-full rounded-lg border border-slate-700/40 
+                   bg-slate-800/40 backdrop-blur-sm hover:border-red-500/40 
+                   transition-all duration-300 p-4 sm:p-5"
                 >
                   {/* Icono + Título */}
                   <div className="flex items-center gap-3 mb-2">
-                    <div
-                      className="inline-flex p-2 rounded-md bg-red-500/10 
-                            group-hover:bg-red-500/20 transition-colors duration-300"
-                    >
+                    <div className="inline-flex p-2 rounded-md bg-red-500/10 group-hover:bg-red-500/20 transition-colors duration-300">
                       <feature.icon className="h-5 w-5 text-red-500 group-hover:scale-110 transition-transform duration-300" />
                     </div>
                     <h3 className="text-base sm:text-lg font-semibold text-white group-hover:text-red-400 transition-colors duration-300">
@@ -207,8 +202,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Coverage Section - Visual Focus */}
-        <section className="py-10 sm:py-15 lg:py-20 px-4 sm:px-6 lg:px-8 bg-slate-950">
+        {/* Coverage Section - Visual Focus - ARREGLADO */}
+        <section className="py-10 sm:py-15 lg:py-15 px-4 sm:px-6 lg:px-8 bg-slate-950">
           <div className="container mx-auto max-w-7xl">
             {/* Título */}
             <div className="text-center mb-16 sm:mb-20">
@@ -222,10 +217,25 @@ export default function HomePage() {
               </h2>
             </div>
 
-            {/* Contenido */}
+            {/* Contenido - MODIFICADO para orden en móvil/PC */}
+            {/* En móvil (base), se usa grid-cols-1 y se invierte el orden (order-2 para lista, order-1 para imagen) */}
+            {/* En PC (lg), la grilla es 5 columnas, y el orden vuelve a ser normal (lista primero) */}
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
-              {/* Lista de zonas */}
-              <div className="lg:col-span-2 space-y-6">
+              {/* Imagen - MODIFICADO para aparecer PRIMERO en móvil */}
+              <div className="lg:col-span-3 order-1 lg:order-none">
+                <div className="relative rounded-3xl overflow-hidden border border-slate-700/50 shadow-2xl shadow-red-500/5">
+                  <Image
+                    src="/coverage-map-purple-fixed.webp"
+                    alt="Mapa de cobertura de servicio de auxilio mecánico en Montevideo y Canelones"
+                    width={1200}
+                    height={630}
+                    className="w-full h-auto"
+                  />
+                </div>
+              </div>
+
+              {/* Lista de zonas - MODIFICADO para aparecer SEGUNDO en móvil */}
+              <div className="lg:col-span-2 space-y-6 order-2 lg:order-none">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 p-3 rounded-xl bg-red-500/10">
                     <CheckCircle className="h-6 w-6 text-red-500" />
@@ -273,19 +283,6 @@ export default function HomePage() {
                     30-50 min
                   </div>
                   <p className="text-sm text-slate-300">En horarios normales</p>
-                </div>
-              </div>
-
-              {/* Imagen */}
-              <div className="lg:col-span-3">
-                <div className="relative rounded-3xl overflow-hidden border border-slate-700/50 shadow-2xl shadow-red-500/5">
-                  <Image
-                    src="/coverage-map-purple-fixed.webp"
-                    alt="Mapa de cobertura de servicio de auxilio mecánico en Montevideo y Canelones"
-                    width={1200}
-                    height={630}
-                    className="w-full h-auto"
-                  />
                 </div>
               </div>
             </div>
@@ -394,7 +391,7 @@ export default function HomePage() {
                   ))}
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-3xl font-bold text-white">4.8</span>
+                  <span className="text-3xl font-bold text-white">4.2</span>
                   <div className="text-left">
                     <div className="text-sm text-slate-400">de 5 estrellas</div>
                     <div className="text-xs text-slate-500">
