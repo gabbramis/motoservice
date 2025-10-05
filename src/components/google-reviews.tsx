@@ -79,7 +79,7 @@ const ReviewCard = ({ review }: { review: (typeof manualReviews)[0] }) => (
         ))}
       </div>
       <p className="text-sm text-slate-300 mb-4 leading-relaxed min-h-[80px]">
-        "{review.text}"
+        {review.text}
       </p>
       <div className="flex items-center gap-3 mt-auto pt-4 border-t border-slate-700/50">
         <Avatar className="h-10 w-10 ring-2 ring-slate-700">
