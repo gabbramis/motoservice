@@ -22,19 +22,19 @@ export default function HomePage() {
       icon: Shield,
       title: "Auxilio 24/7",
       description:
-        "Mecánica ligera y gomería en el lugar. Hasta 2 pinchazos gratis al mes. Si no podemos arreglarlo donde estás, te trasladamos al taller sin costo.",
+        "Mecánica ligera y gomería en el lugar. Hasta 2 pinchazos gratis por mes. Si no se puede reparar en el momento, te trasladamos al taller sin costo.",
     },
     {
       icon: Wrench,
       title: "Servicios en taller",
       description:
-        "Lubricación, regulación de cadena, frenos y cables incluidos. Mano de obra gratuita en cambio de aceite para todos los socios.",
+        "Lubricación, regulación de cadena, frenos y cables incluidos. Mano de obra gratuita en cambio de aceite para socios.",
     },
     {
       icon: Clock,
-      title: "Sin complicaciones",
+      title: "Pagás solo lo justo",
       description:
-        "$590/mes. Pagá en Abitab, débito OCA o transferencia. Sin letra chica, sin sorpresas.",
+        "$590/mes. Pagá en Abitab, débito OCA o transferencia. Sin letra chica, sin sorpresas. Otros servicios tienen costo adicional con tarifas preferenciales.",
     },
   ];
 
@@ -148,16 +148,16 @@ export default function HomePage() {
                 Membresía
               </span>
               <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mt-2 mb-3">
-                Todo incluido por $590/mes
+                Protección completa desde $590/mes
               </h2>
               <p className="text-sm sm:text-base text-slate-400 max-w-xl mx-auto leading-relaxed">
-                Sin costos ocultos, sin letra chica. Protección completa para tu
-                moto.
+                Incluye asistencia esencial para tu moto. Otros servicios o
+                reparaciones no detallados tienen costo adicional, con
+                beneficios exclusivos para socios.
               </p>
             </div>
 
-            {/* Features - MODIFICADO para igualar altura en PC */}
-            {/* NOTA: Eliminamos lg:items-start para que los elementos se estiren por defecto en la grilla */}
+            {/* Features */}
             <div className="flex flex-col gap-4 sm:gap-6 items-center lg:grid lg:grid-cols-3 lg:gap-8">
               {features.map((feature, index) => (
                 <div
@@ -253,9 +253,7 @@ export default function HomePage() {
                     <h3 className="text-xl font-bold text-white mb-1">
                       Por el Norte
                     </h3>
-                    <p className="text-slate-400">
-                      Hasta Puente Colón – La Paz – Pando
-                    </p>
+                    <p className="text-slate-400">Hasta Puente Colón – Pando</p>
                   </div>
                 </div>
 

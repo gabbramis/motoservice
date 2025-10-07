@@ -61,10 +61,13 @@ export default function Footer() {
                 +598 99 218 183
               </li>
               <li>info@motoservice.uy</li>
-              <li className="flex items-center">
+              <Link
+                href="https://maps.app.goo.gl/vKNj3g4tueJzvehR8"
+                className="flex items-center"
+              >
                 <MapPin className="h-4 w-4 mr-2" />
-                Montevideo, Uruguay
-              </li>
+                Vázquez 1550, 11200 Montevideo
+              </Link>
             </ul>
           </div>
           <div>
