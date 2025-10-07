@@ -289,23 +289,21 @@ export default function HomePage() {
                 </h2>
                 <div className="space-y-6 text-slate-300 text-lg leading-relaxed">
                   <p>
-                    Comenzamos en 1986 como un pequeño taller de barrio. Hoy
-                    somos la referencia en auxilio mecánico para motociclistas
-                    en Montevideo y Canelones.
+                    Arrancamos en 1986 como un taller de barrio. Tres décadas
+                    después, somos la empresa de auxilio mecánico más confiable
+                    de Montevideo.
                   </p>
                   <p>
-                    Lo que nos diferencia es simple:{" "}
-                    <strong className="text-white">
-                      cumplimos lo que prometemos
-                    </strong>
-                    . Nuestros mecánicos tienen años de experiencia real,
-                    nuestras unidades están equipadas con herramientas
-                    profesionales, y cuando llamás, respondemos.
+                    Nuestro fundador, un mecánico de toda la vida, entendió que
+                    los motociclistas necesitaban algo más que promesas:
+                    necesitaban un servicio real, con herramientas de verdad y
+                    conocimiento que solo da la experiencia.
                   </p>
                   <p>
-                    Miles de motociclistas confían en nosotros porque saben que
-                    detrás del teléfono hay personas que entienden de motos y
-                    que van a estar ahí cuando más lo necesiten.
+                    Hoy tenemos unidades radiocontroladas, mecánicos
+                    especializados y la confianza de miles de motociclistas que
+                    saben que detrás del teléfono hay personas que entienden de
+                    motos y que van a estar ahí cuando más lo necesiten.
                   </p>
                 </div>
               </div>
