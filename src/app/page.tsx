@@ -53,7 +53,7 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+    <div className="min-h-screen bg-[#111827]">
       <main>
         {/* Hero Section - Premium */}
         <section className="relative w-full min-h-[500px] sm:min-h-[700px] lg:min-h-[700px] flex items-center">
@@ -79,7 +79,7 @@ export default function HomePage() {
                 </div>
 
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 text-white leading-[1.1]">
-                  Auxilio mecánico
+                  Tu auxilio de motos
                   <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-600 to-red-500">
                     cuando lo necesitás
@@ -140,7 +140,7 @@ export default function HomePage() {
         </section>
 
         {/* Membresía */}
-        <section className="py-10 sm:py-14 lg:py-10 px-4 sm:px-6 lg:px-8 bg-slate-950">
+        <section className="py-14 sm:py-14 lg:py-14 px-4 sm:px-6 lg:px-8 bg-slate-950">
           <div className="container mx-auto max-w-6xl">
             {/* Encabezado */}
             <div className="text-center mb-10 sm:mb-14">
@@ -148,7 +148,7 @@ export default function HomePage() {
                 Membresía
               </span>
               <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mt-2 mb-3">
-                Protección completa desde $590/mes
+                Cuida tu moto desde $590/mes
               </h2>
               <p className="text-sm sm:text-base text-slate-400 max-w-xl mx-auto leading-relaxed">
                 Incluye asistencia esencial para tu moto. Otros servicios o
