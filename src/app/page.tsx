@@ -253,7 +253,9 @@ export default function HomePage() {
                     <h3 className="text-xl font-bold text-white mb-1">
                       Por el Norte
                     </h3>
-                    <p className="text-slate-400">Hasta Puente Colón – Pando</p>
+                    <p className="text-slate-400">
+                      Hasta Puente La Paz – Pando
+                    </p>
                   </div>
                 </div>
 
