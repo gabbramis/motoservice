@@ -21,7 +21,7 @@ export default function ContactPage() {
     {
       icon: Clock,
       title: "Horarios de oficina",
-      details: ["Lunes a Viernes", "08:00 a 20:00 hs"],
+      details: ["Lunes a Viernes", "09:00 a 19:00 hs"],
       description: "Para trámites administrativos",
     },
   ];
