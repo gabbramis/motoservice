@@ -1,6 +1,4 @@
-
-const nodemailer = require("nodemailer");
-
+import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
     const { name, email, message, phone } = await req.json();
