@@ -1,10 +1,50 @@
+"use client";
+
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, MapPin, Clock, Mail, MessageCircle } from "lucide-react";
+import { Phone, MapPin, Clock, Mail, MessageCircle, Loader2, CheckCircle, AlertCircle } from "lucide-react";
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState<"success" | "error" | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setStatus(null);
+
+    try {
+      const res = await fetch("/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setStatus("success");
+        setFormData({ name: "", phone: "", email: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  };
   const contactInfo = [
     {
       icon: Phone,
@@ -76,7 +116,7 @@ export default function ContactPage() {
                     <MessageCircle className="mr-2 h-5 w-5 text-red-500" />
                     Envíanos un mensaje
                   </h2>
-                  <form className="space-y-4">
+                  <form className="space-y-4" onSubmit={handleSubmit}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label
@@ -89,6 +129,9 @@ export default function ContactPage() {
                           id="name"
                           placeholder="Tu nombre completo"
                           className="bg-slate-700 border-slate-600 text-white placeholder:text-slate-400"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
                         />
                       </div>
                       <div>
@@ -102,6 +145,8 @@ export default function ContactPage() {
                           id="phone"
                           placeholder="Tu número de teléfono"
                           className="bg-slate-700 border-slate-600 text-white placeholder:text-slate-400"
+                          value={formData.phone}
+                          onChange={handleChange}
                         />
                       </div>
                     </div>
@@ -117,19 +162,9 @@ export default function ContactPage() {
                         type="email"
                         placeholder="tu@email.com"
                         className="bg-slate-700 border-slate-600 text-white placeholder:text-slate-400"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="subject"
-                        className="block text-sm font-medium mb-1 text-white"
-                      >
-                        Asunto
-                      </label>
-                      <Input
-                        id="subject"
-                        placeholder="¿En qué podemos ayudarte?"
-                        className="bg-slate-700 border-slate-600 text-white placeholder:text-slate-400"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
                       />
                     </div>
                     <div>
@@ -144,16 +179,43 @@ export default function ContactPage() {
                         placeholder="Contanos tu consulta..."
                         rows={4}
                         className="bg-slate-700 border-slate-600 text-white placeholder:text-slate-400"
+                        value={formData.message}
+                        onChange={handleChange}
+                        required
                       />
                     </div>
                     <Button
                       type="submit"
                       size="lg"
                       className="w-full bg-red-600 hover:bg-red-700 text-white font-bold"
+                      disabled={isLoading}
                     >
-                      <Mail className="mr-2 h-5 w-5" />
-                      Enviar mensaje
+                      {isLoading ? (
+                        <>
+                          <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                          Enviando...
+                        </>
+                      ) : (
+                        <>
+                          <Mail className="mr-2 h-5 w-5" />
+                          Enviar mensaje
+                        </>
+                      )}
                     </Button>
+
+                    {status === "success" && (
+                      <div className="flex items-center gap-2 p-4 bg-green-900/50 border border-green-700 rounded-lg text-green-300">
+                        <CheckCircle className="h-5 w-5 flex-shrink-0" />
+                        <p>¡Gracias por tu mensaje! Te responderemos a la brevedad.</p>
+                      </div>
+                    )}
+
+                    {status === "error" && (
+                      <div className="flex items-center gap-2 p-4 bg-red-900/50 border border-red-700 rounded-lg text-red-300">
+                        <AlertCircle className="h-5 w-5 flex-shrink-0" />
+                        <p>Hubo un error al enviar tu mensaje. Por favor, intentá de nuevo.</p>
+                      </div>
+                    )}
                   </form>
                 </CardContent>
               </Card>
