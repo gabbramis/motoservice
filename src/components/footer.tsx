@@ -60,7 +60,7 @@ export default function Footer() {
                 <Phone className="h-4 w-4 mr-2" />
                 +598 99 218 183
               </li>
-              <li>info@motoservice.uy</li>
+              <li>auxiliomotoservice@gmail.com</li>
               <Link
                 href="https://maps.app.goo.gl/vKNj3g4tueJzvehR8"
                 className="flex items-center"
@@ -78,9 +78,21 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="border-t border-border mt-8 pt-8 text-center">
+        <div className="border-t border-border mt-8 pt-8 text-center space-y-2">
           <p className="text-sm text-muted-foreground">
             © 2024 MOTOSERVICE. Todos los derechos reservados.
+          </p>
+          <p className="text-sm text-muted-foreground/90">
+            Web diseñada por{" "}
+            <Link
+              href="https://gaiastudio.com.uy/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-[#a13a63] hover:text-[#8b1e4b] transition-colors font-medium"
+            >
+              Gaia Studio
+            </Link>{" "}
+            <span className="text-[#a13a63]">♥</span>
           </p>
         </div>
       </div>
